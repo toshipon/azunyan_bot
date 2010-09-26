@@ -47,12 +47,13 @@ public class StorePostTempleteAction implements ActionTemplete {
 		for (DirectMessage message : messages) {
 			CommentTemplete commentTemplete = new CommentTemplete(message.getText(), message.getSenderScreenName());
 			pm.makePersistent(commentTemplete);
+			LOGGER.info("stored comment :" + message.getText());
 		}
 	}
 
 	@SuppressWarnings("unchecked")
 	private long getSinceId() {
-		long id = 0;
+		long id = 1;
 		
 		Query query = pm.newQuery(SinceId.class);
 		List<SinceId> list = (List<SinceId>) query.execute(new SinceId(null, Action.Store.getActionName()));

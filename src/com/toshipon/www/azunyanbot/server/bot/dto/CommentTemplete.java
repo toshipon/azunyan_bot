@@ -3,6 +3,8 @@ package com.toshipon.www.azunyanbot.server.bot.dto;
 import java.io.Serializable;
 
 import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
@@ -12,6 +14,7 @@ import javax.jdo.annotations.PrimaryKey;
  *
  */
 @SuppressWarnings("serial")
+@PersistenceCapable(identityType = IdentityType.APPLICATION, detachable="true")
 public class CommentTemplete implements Serializable{
 
 	public CommentTemplete() {
