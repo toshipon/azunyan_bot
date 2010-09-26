@@ -1,0 +1,7 @@
+*.cache.*
+.DS_Store
+war/WEB-INF/classes/
+
+# コンシューマーキーのpushを避ける
+war/WEB-INF/appengine-web.xml
+
