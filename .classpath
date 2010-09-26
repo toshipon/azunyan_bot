@@ -5,5 +5,7 @@
 	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
 	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Users/toshipon/Public/div/Workspace_gae/azunyan_bot/war/WEB-INF/lib/twitter4j-core-2.1.4.jar" sourcepath="/Users/toshipon/Public/div/Workspace_gae/twitter4j-2.1.4/twitter4j-core/src"/>
+	<classpathentry kind="lib" path="/Users/toshipon/Public/div/Workspace_gae/azunyan_bot/war/WEB-INF/lib/junit-4.8.2.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

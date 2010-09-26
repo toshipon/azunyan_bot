@@ -17,6 +17,10 @@
   <!-- Configure java.util.logging -->
   <system-properties>
     <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+  	<property name="oauth.consumerKey" value="ここに自分の作成したアプリのコンシューマキーを設定" />
+  	<property name="oauth.consumerSecret" value="ここに自分の作成したアプリのコンシューマシークレットキーを設定" />
   </system-properties>
+  
+  <sessions-enabled>true</sessions-enabled>
 
 </appengine-web-app>

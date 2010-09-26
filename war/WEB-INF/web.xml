@@ -5,20 +5,36 @@
 
 <web-app>
   
-  <!-- Servlets -->
-  <servlet>
-    <servlet-name>greetServlet</servlet-name>
-    <servlet-class>com.toshipon.www.azunyanbot.server.GreetingServiceImpl</servlet-class>
+   <servlet>
+  	<servlet-name>twitterBot</servlet-name>
+  	<servlet-class>com.toshipon.www.azunyanbot.server.bot.ExecuterBotActionServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
-    <servlet-name>greetServlet</servlet-name>
-    <url-pattern>/azunyan_bot/greet</url-pattern>
+  	<servlet-name>twitterBot</servlet-name>
+  	<url-pattern>/twitterbot</url-pattern>
   </servlet-mapping>
   
-  <!-- Default page to serve -->
+  <!--  以下accesstokenをdatastoreに登録する用 -->
+  <servlet>
+  	<servlet-name>GateAccessToken</servlet-name>
+  	<servlet-class>com.toshipon.www.azunyanbot.server.token.GateAccessTokenServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>GateAccessToken</servlet-name>
+  	<url-pattern>/gateaccesstaken</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>Callback</servlet-name>
+  	<servlet-class>com.toshipon.www.azunyanbot.server.token.CallbackServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Callback</servlet-name>
+  	<url-pattern>/callback</url-pattern>
+  </servlet-mapping>
+  
   <welcome-file-list>
-    <welcome-file>Azunyan_bot.html</welcome-file>
+    <welcome-file>getAccessToken.html</welcome-file>
   </welcome-file-list>
 
 </web-app>
