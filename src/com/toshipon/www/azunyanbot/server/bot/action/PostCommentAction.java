@@ -12,6 +12,7 @@ public class PostCommentAction implements ActionTemplete{
 
 	private static final Logger LOGGER = Logger.getLogger(PostCommentAction.class.getName());
 	
+	@Override
 	public void execute(Twitter twitter) {
 //		interval = getInterval("postMessage");
 //		if (interval == null) {return;}

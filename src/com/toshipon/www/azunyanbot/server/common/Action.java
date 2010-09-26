@@ -3,11 +3,13 @@ package com.toshipon.www.azunyanbot.server.common;
 import com.toshipon.www.azunyanbot.server.bot.action.ActionTemplete;
 import com.toshipon.www.azunyanbot.server.bot.action.FollowFollowersAction;
 import com.toshipon.www.azunyanbot.server.bot.action.PostCommentAction;
+import com.toshipon.www.azunyanbot.server.bot.action.StorePostTempleteAction;
 
 public enum Action {
 
 	Post	("post", PostCommentAction.class),
-	Follow	("follow", FollowFollowersAction.class);
+	Follow	("follow", FollowFollowersAction.class),
+	Store   ("store", StorePostTempleteAction.class);
 	
 	private String actionName;
 	private Class<? extends ActionTemplete> classInfo;

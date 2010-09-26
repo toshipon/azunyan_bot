@@ -20,7 +20,9 @@ public class FollowFollowersAction implements ActionTemplete{
 	private static final Logger LOGGER = Logger.getLogger(FollowFollowersAction.class.getName());
 	private PersistenceManager pm;
 	
+	@Override
 	public void execute(Twitter twitter) {
+		pm = PMF.get().getPersistenceManager();
 		try {
 			IDs ids = twitter.getFollowersIDs();
 			List<Follower> list = getFollowers();
@@ -38,6 +40,7 @@ public class FollowFollowersAction implements ActionTemplete{
 		} catch (TwitterException e) {
 			LOGGER.info(e.getMessage());
 		}
+		pm.close();
 	}
 
 	private boolean existUser(List<Follower> followers, int userId) {
@@ -51,11 +54,9 @@ public class FollowFollowersAction implements ActionTemplete{
 
 	// followしたユーザをデータストアに格納
 	private void saveFollower(int userId) {
-		pm = PMF.get().getPersistenceManager();
 		Follower follower = new Follower();
 		follower.setUserId(userId);
 		pm.makePersistent(follower);
-		pm.close();
 	}
 
 	// データストアからfollower情報を取得
@@ -63,10 +64,8 @@ public class FollowFollowersAction implements ActionTemplete{
 	private List<Follower> getFollowers() {
 		List<Follower> followers = null;
 		try {
-			pm = PMF.get().getPersistenceManager();
 			Query query = pm.newQuery(Follower.class);
 			followers = (List<Follower>) query.execute();
-			pm.close();
 		} catch (JDOFatalUserException e) {
 			// テーブルが存在してなかったら初回は例外が発生する
 			LOGGER.info(e.getMessage());

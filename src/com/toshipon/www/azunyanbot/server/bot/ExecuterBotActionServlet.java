@@ -35,8 +35,8 @@ import com.toshipon.www.azunyanbot.server.token.Token;
 public class ExecuterBotActionServlet extends HttpServlet {
 	
 	private static final Logger LOGGER = Logger.getLogger(ExecuterBotActionServlet.class.getName());
-	private String cacheToken = "accessToken";
-	private String cacheSecret = "accessSecret";
+	private String CACHETOKEN = "accessToken";
+	private String CACHESECRET = "accessSecret";
 
 	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -61,13 +61,13 @@ public class ExecuterBotActionServlet extends HttpServlet {
 			LOGGER.info(e.getMessage());
 		}
 		
-		if (cache.get(cacheToken) == null || cache.get(cacheSecret) == null) {
+		if (cache.get(CACHETOKEN) == null || cache.get(CACHESECRET) == null) {
 			Query query = pm.newQuery(Token.class);
 			List<Token> tokens = (List<Token>) query.execute();
 			for (Token token : tokens) {
 				if (botName.equals(token.getBotname())) {
-					cache.put(cacheToken, token.getAccessToken());
-					cache.put(cacheSecret, token.getAccessSecret());
+					cache.put(CACHETOKEN, token.getAccessToken());
+					cache.put(CACHESECRET, token.getAccessSecret());
 				}
 			}
 			pm.close();
@@ -75,7 +75,7 @@ public class ExecuterBotActionServlet extends HttpServlet {
 		
 		// twitterオブジェクトの生成
 		Twitter twitter = new TwitterFactory().getOAuthAuthorizedInstance(
-				new AccessToken((String)cache.get(cacheToken), (String)cache.get(cacheSecret)));
+				new AccessToken((String)cache.get(CACHETOKEN), (String)cache.get(CACHESECRET)));
 		
 		// bot処理を実行
 		execute(twitter, actionName);

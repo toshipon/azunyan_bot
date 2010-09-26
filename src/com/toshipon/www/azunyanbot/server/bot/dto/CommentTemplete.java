@@ -18,6 +18,11 @@ public class CommentTemplete implements Serializable{
 		super();
 	}
 	
+	public CommentTemplete(String comment, String creUser) {
+		this.comment = comment;
+		this.creUser = creUser;
+	}
+	
 	@SuppressWarnings("unused")
 	@PrimaryKey
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)

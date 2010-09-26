@@ -1,5 +1,10 @@
 <cronentries> 
   <cron> 
+    <url>/twitterbot?botname=_azunyan_bot&amp;action=store</url> 
+    <description>bot reaction</description> 
+    <schedule>every 5 minutes</schedule> 
+  </cron> 
+  <cron> 
     <url>/twitterbot?botname=_azunyan_bot&amp;action=post</url> 
     <description>bot reaction</description> 
     <schedule>every 5 minutes</schedule> 
